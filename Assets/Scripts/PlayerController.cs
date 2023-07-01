@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 1f;
     Rigidbody2D rb2d;
+    bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +16,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            rb2d.AddTorque(torqueAmount);
+        if (canMove) {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                rb2d.AddTorque(torqueAmount);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow)) {
+                rb2d.AddTorque(-torqueAmount);
+            }
         }
-        else if (Input.GetKey(KeyCode.RightArrow)) {
-            rb2d.AddTorque(-torqueAmount);
-        }
+
+    }
+
+    public void DisableControls() {
+        canMove = false;
     }
 }

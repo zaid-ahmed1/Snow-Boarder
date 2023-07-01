@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Boost : MonoBehaviour
 {
+    bool hasCrashed = false;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !hasCrashed)
         {
+            hasCrashed = true;
             GetComponent<AudioSource>().Play();
             SurfaceEffector2D surfaceEffector = FindObjectOfType<SurfaceEffector2D>().GetComponent<SurfaceEffector2D>();
             surfaceEffector.speed += 10; // Set the new surface effector speed value
