@@ -14,6 +14,7 @@ public class FinishLine : MonoBehaviour
             hasFinished = true;
             finishEffect.Play();
             GetComponent<AudioSource>().Play();
+            FindObjectOfType<PlayerController>().DisableControls();
             Invoke("ReloadScene", delay);
         }
     }
