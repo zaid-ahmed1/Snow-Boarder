@@ -12,7 +12,7 @@ public class Boost : MonoBehaviour
             hasCrashed = true;
             GetComponent<AudioSource>().Play();
             SurfaceEffector2D surfaceEffector = FindObjectOfType<SurfaceEffector2D>().GetComponent<SurfaceEffector2D>();
-            surfaceEffector.speed += 10; // Set the new surface effector speed value
+            surfaceEffector.speed += 7; // Set the new surface effector speed value
             GetComponent<SpriteRenderer>().enabled = false;
         }
     }
