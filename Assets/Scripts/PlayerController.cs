@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 1f;
     Rigidbody2D rb2d;
-    [SerializeField] TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
     private int flipCount = 0;
     float flips = 0;
     float deltaRotation = 0;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        Debug.Log(flips);
         scoreText.text = "Flips: " + flipsCounter().ToString();
     }
 
