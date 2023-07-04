@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float torqueAmount = 1f;
     Rigidbody2D rb2d;
     public TextMeshProUGUI scoreText;
+    private int frontFlipCount = 1;
+    private int backFlipCount = -1;
     private int flipCount = 0;
     float flips = 0;
     float deltaRotation = 0;
@@ -52,15 +54,23 @@ float flipsCounter() {
         deltaRotation -= 360;
     }
     if (deltaRotation <= -300) {
-        deltaRotation += 360;
-    }
-
-    windupRotation += deltaRotation;
-    flips = Mathf.Abs(windupRotation / 360);
-    if (Mathf.RoundToInt(flips) == flipCount + 1 || Mathf.RoundToInt(flips) == flipCount - 1) {
+        deltaRotation += 360;                           
+    }                           
+                            
+    windupRotation += deltaRotation;                            
+    flips = (windupRotation / 360);                         
+    int flipsRounded = Mathf.RoundToInt(flips);                         
+    if (flipsRounded == frontFlipCount) {
+        frontFlipCount++;
+        backFlipCount++;
         flipCount++;
-        flips = 0;
+    }
+    else if (flipsRounded == backFlipCount) {
+        frontFlipCount--;
+        backFlipCount--;
+        flipCount++;
     }
     return (flipCount);
-}
-}
+}                           
+}                           
+                            
