@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        Debug.Log(flips);
         scoreText.text = "Flips: " + flipsCounter().ToString();
     }
 
