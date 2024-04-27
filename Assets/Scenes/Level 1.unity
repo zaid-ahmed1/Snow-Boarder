@@ -26035,7 +26035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae12965086963f2489319ef73a8410ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueAmount: 1
+  torqueAmount: 7
   scoreText: {fileID: 1642440131}
   jumpForce: 6.6
   jumpKey: 32

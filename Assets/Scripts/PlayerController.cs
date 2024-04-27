@@ -31,15 +31,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) {
-            if (Input.GetKey(KeyCode.LeftArrow)) {
-                rb2d.AddTorque(torqueAmount);
-            }
-            else if (Input.GetKey(KeyCode.RightArrow)) {
-                rb2d.AddTorque(-torqueAmount);
-            }
-        }
-
 
         if (Input.GetKeyDown(jumpKey) && isGrounded) {
             Jump();
@@ -48,6 +39,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if (canMove) {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                rb2d.AddTorque(torqueAmount);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow)) {
+                rb2d.AddTorque(-torqueAmount);
+            }
+        }
         scoreText.text = "Flips: " + flipsCounter().ToString();
     }
 
